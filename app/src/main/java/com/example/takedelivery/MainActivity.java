@@ -1,11 +1,10 @@
 package com.example.takedelivery;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,11 +12,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                abrirBegin();
+            }
+        }, 5000);
 
-        getWindow().setStatusBarColor(Color.parseColor("#FDD54A0A"));
+    }
 
-        ActionBar actionbar = getSupportActionBar();
-        actionbar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FDEA520C")));
-        actionbar.setTitle("Take Delivery");
+    private void abrirBegin() {
+        Intent i  = new Intent(MainActivity.this, Choice.class);
+        startActivity(i);
+        finish();
     }
 }
