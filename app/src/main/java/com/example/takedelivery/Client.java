@@ -13,7 +13,7 @@ public class Client extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Take Delivery: Client Field");
         setSupportActionBar( toolbar );
     }
@@ -21,12 +21,16 @@ public class Client extends AppCompatActivity {
     private void setSupportActionBar(Toolbar toolbar) {
     }
 
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_client);
+        inflater.inflate(R.menu.menu_client, menu);
 
         return super.onCreateOptionsMenu(menu);
     }
+
+    
 }
