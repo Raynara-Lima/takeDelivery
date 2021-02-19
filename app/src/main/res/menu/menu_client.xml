@@ -8,11 +8,13 @@
         android:title="Add"
         app:showAsAction="always" />
     <item
-        android:id="@+id/configurar"
-        android:title="Configurações"
-        app:showAsAction="never" />
+        android:id="@+id/editar"
+        android:icon="@drawable/ic_baseline_edit_24"
+        android:title="Edit"
+        app:showAsAction="always" />
     <item
-        android:id="@+id/sair"
-        android:title="Sair"
-        app:showAsAction="never" />
+        android:id="@+id/excluir"
+        android:icon="@drawable/ic_baseline_delete_outline_24"
+        android:title="Del"
+        app:showAsAction="always" />
 </menu>

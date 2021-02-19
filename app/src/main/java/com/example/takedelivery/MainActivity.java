@@ -2,7 +2,9 @@ package com.example.takedelivery;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void abrirBegin() {
-        Intent i  = new Intent(MainActivity.this, Client.class);
+        Intent i  = new Intent(MainActivity.this, CadastroProdutoActivity.class);
         startActivity(i);
         finish();
     }
