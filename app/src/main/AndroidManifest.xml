@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TakeDelivery">
-        <activity android:name=".Business"></activity>
+        <activity android:name=".CadastroProdutoActivity"></activity>
+        <activity android:name=".Business" />
         <activity android:name=".Choose" />
         <activity android:name=".Client" />
         <activity android:name=".MainActivity">

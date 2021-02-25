@@ -24,7 +24,7 @@ public class Choose extends AppCompatActivity {
 
     public void escolha(View v){
     if (decidir.isChecked()){
-        Intent i  = new Intent(Choose.this, Business.class);
+        Intent i  = new Intent(Choose.this, CadastroProdutoActivity.class);
         startActivity(i);
         finish();
     }
