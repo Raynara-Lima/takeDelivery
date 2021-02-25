@@ -17,12 +17,12 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 abrirBegin();
             }
-        }, 5000);
+        }, 0);
 
     }
 
     private void abrirBegin() {
-        Intent i  = new Intent(MainActivity.this, CadastroProdutoActivity.class);
+        Intent i  = new Intent(MainActivity.this, Choose.class);
         startActivity(i);
         finish();
     }
