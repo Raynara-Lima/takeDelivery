@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void abrirBegin() {
-        Intent i  = new Intent(MainActivity.this, CadastroProdutoActivity.class);
+        Intent i  = new Intent(MainActivity.this, EmpresaActivity.class);
         startActivity(i);
         finish();
     }

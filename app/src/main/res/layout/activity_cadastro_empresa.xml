@@ -20,6 +20,6 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_cadastro_produto" />
+    <include layout="@layout/content_cadastro_empresa" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

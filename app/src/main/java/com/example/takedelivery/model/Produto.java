@@ -7,11 +7,15 @@ public class Produto {
     String nome;
     String descricao;
     BigDecimal preco;
+    private static int contadorId = 0;
+
 
     public Produto(String nome, String descricao, BigDecimal preco) {
         this.nome = nome;
         this.descricao = descricao;
         this.preco = preco;
+        this.id = contadorId++;
+
     }
 
     public Produto() {

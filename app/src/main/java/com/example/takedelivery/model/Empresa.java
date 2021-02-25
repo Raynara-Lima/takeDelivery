@@ -6,24 +6,29 @@ public class Empresa {
     int id;
     String cnpj;
     String nomeFantasia;
-    String razaoSocial;
+//    String razaoSocial;
     String telefone;
     String cep;
     String estado;
     String cidade;
     String bairro;
     String endereco;
+    String numero;
     ArrayList<Produto> cardapio;
+    Categoria categoria;
 
-    public Empresa(String cnpj, String nomeFantasia, String razaoSocial, String telefone, String cep, String estado, String cidade, String bairro, String endereco) {
+    public Empresa(String cnpj, String nomeFantasia, String telefone, String cep, String estado, String cidade, String bairro, String endereco,String numero, Categoria categoria) {
         this.cnpj = cnpj;
-        this.razaoSocial = razaoSocial;
+        this.nomeFantasia = nomeFantasia;
         this.telefone = telefone;
         this.cep = cep;
         this.estado = estado;
         this.cidade = cidade;
         this.bairro = bairro;
         this.endereco = endereco;
+        this.numero = numero;
+        this.categoria = categoria;
+
     }
 
     public Empresa() {
@@ -41,13 +46,13 @@ public class Empresa {
         this.cnpj = cnpj;
     }
 
-    public String getRazaoSocial() {
-        return razaoSocial;
-    }
-
-    public void setRazaoSocial(String razaoSocial) {
-        this.razaoSocial = razaoSocial;
-    }
+//    public String getRazaoSocial() {
+//        return razaoSocial;
+//    }
+//
+//    public void setRazaoSocial(String razaoSocial) {
+//        this.razaoSocial = razaoSocial;
+//    }
 
     public String getTelefone() {
         return telefone;
@@ -111,5 +116,21 @@ public class Empresa {
 
     public void setNomeFantasia(String nomeFantasia) {
         this.nomeFantasia = nomeFantasia;
+    }
+
+    public String getNúmero() {
+        return numero;
+    }
+
+    public void setNumero(String núuero) {
+        this.numero = numero;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 }

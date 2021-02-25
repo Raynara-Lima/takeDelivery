@@ -4,78 +4,73 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:descendantFocusability="blocksDescendants"
+    android:onClick="cancelar"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <!--    <ListView-->
-    <!--        android:id="@+id/listviewProdutos"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent" />-->
-
-    <ListView
-        android:id="@+id/listViewProdutos"
+    <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:backgroundTint="@color/cordefundo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </ListView>
-
-    <LinearLayout
-        android:id="@+id/linearLayout6"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:alwaysDrawnWithCache="false"
-        android:backgroundTint="@color/cordefundo"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.53">
 
-        <LinearLayout
-            android:layout_width="175dp"
+        <EditText
+            android:id="@+id/editTextNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Nome"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/editTextDescricao"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Descrição"
+            android:inputType="textMultiLine" />
 
-            <TextView
-                android:id="@+id/lista_produtos_personalizada_nome"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="#0B0B0B"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:clickable="true"/>
-
-            <TextView
-                android:id="@+id/lista_produtos_personalizada_descricao"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:textSize="15sp"
-                android:clickable="true"/>
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/lista_produtos_personalizada_preco"
+        <EditText
+            android:id="@+id/editTextPreco"
             android:layout_width="wrap_content"
-            android:layout_height="41dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textColor="@color/coroficial"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:clickable="true"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="Preço"
+            android:inputType="textPersonName|numberDecimal" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buttonCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="55dp"
+                android:layout_weight="1"
+                android:backgroundTint="#9F9C9C"
+                android:onClick="cancelar"
+                android:text="cancelar" />
+
+            <Button
+                android:id="@+id/buttonAdd"
+                android:layout_width="wrap_content"
+                android:layout_height="55dp"
+                android:layout_weight="1"
+                android:onClick="adicionar"
+                android:text="adicionar" />
+        </LinearLayout>
 
     </LinearLayout>
 
