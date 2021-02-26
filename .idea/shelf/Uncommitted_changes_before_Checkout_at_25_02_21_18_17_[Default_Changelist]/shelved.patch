@@ -1,0 +1,1066 @@
+Index: app/src/main/res/layout/content_carrinho.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/content_carrinho.xml	(date 1614284957000)
++++ app/src/main/res/layout/content_carrinho.xml	(date 1614284957000)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    app:layout_behavior="@string/appbar_scrolling_view_behavior"></androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/example/takedelivery/CarrinhoActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/takedelivery/CarrinhoActivity.java	(date 1614285819000)
++++ app/src/main/java/com/example/takedelivery/CarrinhoActivity.java	(date 1614285819000)
+@@ -0,0 +1,24 @@
++package com.example.takedelivery;
++
++import android.os.Bundle;
++
++import com.google.android.material.floatingactionbutton.FloatingActionButton;
++import com.google.android.material.snackbar.Snackbar;
++
++import androidx.appcompat.app.AppCompatActivity;
++import androidx.appcompat.widget.Toolbar;
++
++import android.view.View;
++
++public class CarrinhoActivity extends AppCompatActivity {
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.activity_carrinho);
++        Toolbar toolbar = findViewById(R.id.toolbar);
++        setSupportActionBar(toolbar);
++
++
++    }
++}
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_pedidos_empresa.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_pedidos_empresa.xml	(date 1614260471000)
++++ app/src/main/res/layout/activity_pedidos_empresa.xml	(date 1614260471000)
+@@ -0,0 +1,25 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    tools:context=".PedidosEmpresaActivity">
++
++    <com.google.android.material.appbar.AppBarLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:theme="@style/Theme.TakeDelivery.AppBarOverlay">
++
++        <androidx.appcompat.widget.Toolbar
++            android:id="@+id/toolbar"
++            android:layout_width="match_parent"
++            android:layout_height="?attr/actionBarSize"
++            android:background="?attr/colorPrimary"
++            app:popupTheme="@style/Theme.TakeDelivery.PopupOverlay" />
++
++    </com.google.android.material.appbar.AppBarLayout>
++
++    <include layout="@layout/content_pedidos_empresa" />
++
++</androidx.coordinatorlayout.widget.CoordinatorLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_carrinho.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_carrinho.xml	(date 1614284957000)
++++ app/src/main/res/layout/activity_carrinho.xml	(date 1614284957000)
+@@ -0,0 +1,33 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    tools:context=".CarrinhoActivity">
++
++    <com.google.android.material.appbar.AppBarLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:theme="@style/Theme.TakeDelivery.AppBarOverlay">
++
++        <androidx.appcompat.widget.Toolbar
++            android:id="@+id/toolbar"
++            android:layout_width="match_parent"
++            android:layout_height="?attr/actionBarSize"
++            android:background="?attr/colorPrimary"
++            app:popupTheme="@style/Theme.TakeDelivery.PopupOverlay" />
++
++    </com.google.android.material.appbar.AppBarLayout>
++
++    <include layout="@layout/content_carrinho" />
++
++    <com.google.android.material.floatingactionbutton.FloatingActionButton
++        android:id="@+id/fab"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_gravity="bottom|end"
++        android:layout_margin="@dimen/fab_margin"
++        app:srcCompat="@android:drawable/ic_dialog_email" />
++
++</androidx.coordinatorlayout.widget.CoordinatorLayout>
+\ No newline at end of file
+Index: app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources>\n    <string name=\"app_name\">takeDelivery</string>\n    <string name=\"title_activity_cadastro_produto\">Cadastrar Produto</string>\n    <!-- Strings used for fragments for navigation -->\n    <string name=\"title_activity_cardapio\">Cardápio</string>\n\n    <string name=\"next\">Next</string>\n    <string name=\"previous\">Previous</string>\n    <string name=\"title_activity_empresa\">EmpresaActivity</string>\n    <!-- Strings used for fragments for navigation -->\n    <string name=\"first_fragment_label\">First Fragment</string>\n    <string name=\"second_fragment_label\">Second Fragment</string>\n\n    <string name=\"hello_first_fragment\">Hello first fragment</string>\n    <string name=\"hello_second_fragment\">Hello second fragment. Arg: %1$s</string>\n    <string name=\"title_activity_pedidos_empresa\">PedidosEmpresaActivity</string>\n\n\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/strings.xml	(revision be40fda3873d3238718e46051b2b64dd4a911390)
++++ app/src/main/res/values/strings.xml	(date 1614284955000)
+@@ -14,6 +14,8 @@
+     <string name="hello_first_fragment">Hello first fragment</string>
+     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+     <string name="title_activity_pedidos_empresa">PedidosEmpresaActivity</string>
++    <string name="title_activity_noficacoes_pedidos">NoficacoesPedidosActivity</string>
++    <string name="title_activity_carrinho">CarrinhoActivity</string>
+ 
+ 
+ </resources>
+\ No newline at end of file
+Index: app/src/main/java/com/example/takedelivery/EmpresaActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.takedelivery;\n\nimport android.content.Intent;\nimport android.os.Bundle;\n\nimport com.example.takedelivery.model.Categoria;\nimport com.example.takedelivery.model.Empresa;\nimport com.example.takedelivery.model.Produto;\nimport com.google.android.material.floatingactionbutton.FloatingActionButton;\nimport com.google.android.material.snackbar.Snackbar;\n\nimport androidx.appcompat.app.AppCompatActivity;\nimport androidx.appcompat.widget.Toolbar;\n\nimport android.os.Parcelable;\nimport android.view.View;\nimport android.widget.TextView;\n\nimport java.math.BigDecimal;\nimport java.util.ArrayList;\nimport com.example.takedelivery.model.Produto;\npublic class EmpresaActivity extends AppCompatActivity {\n    Empresa empresa = new Empresa(\"28.046.882/0001-45\", \"Delivrey Menu\", \"8599568791\", \"60125151\", \"CE\", \"Fortaleza\", \"Dionisio Torres\", \"Osvaldo Cruz\", \"2085\", Categoria.BRASILEIRA);\n    ArrayList<Produto> cardapio = new ArrayList<Produto>();\n\n    @Override\n    protected void onCreate(Bundle savedInstanceState) {\n        super.onCreate(savedInstanceState);\n        setContentView(R.layout.activity_empresa);\n        Toolbar toolbar = findViewById(R.id.toolbar);\n        setSupportActionBar(toolbar);\n\n        cardapio.add(new Produto(\"Vatapá de frango\",\"Acompanha arroz branco e farofinha de mandioca. Vatapá de frando desfiado e finalizado com batata palha.\", new BigDecimal(19.90)));\n        cardapio.add(new Produto(\"Frango com salsa de ervas frescas\",\"Acompanha arroz branco e purê de batatas. Filé de peito de frango em tiras adicnado de molho a base de azeite com ervas frescas.\", new BigDecimal(19.90)));\n\n        empresa.setCardapio(cardapio);\n\n        TextView nome = findViewById( R.id.textViewNome);;\n        nome.setText(empresa.getNomeFantasia());\n\n    }\n        public void verCardapio (View view){\n            Intent intent = new Intent(this, CardapioActivity.class);\n            CardapioActivity.cardapio = empresa.getCardapio();\n//            intent.putParcelableArrayListExtra( \"cardapio\", (ArrayList<? extends Parcelable>) cardapio);\n            startActivity(intent);\n\n        }\n\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/takedelivery/EmpresaActivity.java	(revision be40fda3873d3238718e46051b2b64dd4a911390)
++++ app/src/main/java/com/example/takedelivery/EmpresaActivity.java	(date 1614272677000)
+@@ -46,5 +46,12 @@
+             startActivity(intent);
+ 
+         }
++    public void verPedidos(View view){
++        Intent intent = new Intent(this, PedidosEmpresaActivity.class);
++//        CardapioActivity.cardapio = empresa.getCardapio();
++//            intent.putParcelableArrayListExtra( "cardapio", (ArrayList<? extends Parcelable>) cardapio);
++        startActivity(intent);
++
++    }
+ 
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/example/takedelivery/NoficacoesPedidosActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/takedelivery/NoficacoesPedidosActivity.java	(date 1614282626000)
++++ app/src/main/java/com/example/takedelivery/NoficacoesPedidosActivity.java	(date 1614282626000)
+@@ -0,0 +1,24 @@
++package com.example.takedelivery;
++
++import android.os.Bundle;
++
++import com.google.android.material.floatingactionbutton.FloatingActionButton;
++import com.google.android.material.snackbar.Snackbar;
++
++import androidx.appcompat.app.AppCompatActivity;
++import androidx.appcompat.widget.Toolbar;
++
++import android.view.View;
++
++public class NoficacoesPedidosActivity extends AppCompatActivity {
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.activity_noficacoes_pedidos);
++        Toolbar toolbar = findViewById(R.id.toolbar);
++        setSupportActionBar(toolbar);
++
++
++    }
++}
+\ No newline at end of file
+Index: app/src/main/java/com/example/takedelivery/adapter/AdapterListViewPedidos.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/takedelivery/adapter/AdapterListViewPedidos.java	(date 1614273574000)
++++ app/src/main/java/com/example/takedelivery/adapter/AdapterListViewPedidos.java	(date 1614273574000)
+@@ -0,0 +1,81 @@
++package com.example.takedelivery.adapter;
++
++import android.content.Context;
++import android.view.LayoutInflater;
++import android.view.View;
++import android.view.ViewGroup;
++import android.widget.BaseAdapter;
++import android.widget.TextView;
++
++import com.example.takedelivery.R;
++import com.example.takedelivery.model.Pedido;
++import com.example.takedelivery.model.Produto;
++
++import java.text.NumberFormat;
++import java.util.List;
++import java.util.Locale;
++
++public class AdapterListViewPedidos extends BaseAdapter {
++
++    private final List<Pedido> pedidos;
++    private final Context c;
++
++    public AdapterListViewPedidos(List<Pedido> pedidos, Context context) {
++        this.pedidos = pedidos;
++        this.c = context;
++        ;
++    }
++
++    @Override
++    public int getCount() {
++        return pedidos.size();
++    }
++
++    @Override
++    public Pedido getItem(int position) {
++        return pedidos.get(position);
++    }
++
++    @Override
++    public long getItemId(int position) {
++        return 0;
++    }
++
++    @Override
++
++    public View getView(int position, View convertView, ViewGroup parent) {
++
++        convertView = LayoutInflater.from(c).inflate(R.layout.layout_list_pedidos, parent, false);
++        Pedido pedido = pedidos.get(position);
++
++        TextView idPedido = (TextView) convertView.findViewById(R.id.textViewIdPedido);
++        TextView data = (TextView) convertView.findViewById(R.id.textViewData);
++        TextView nomeCliente = (TextView) convertView.findViewById(R.id.textViewNomeCliente);
++
++        idPedido.setText( String.valueOf(pedido.getId()));
++        data.setText(pedido.getData());
++        nomeCliente.setText(pedido.getNomeCliente());
++
++//        convertView.findViewById(R.id.cardView).setOnClickListener((v) ->{
++//                            Log.e("DEBUG", "teste");
++//
++//            Toast.makeText(c, produto.getNome(), Toast.LENGTH_SHORT).show();
++//            });
++//        view.findViewById(R.id.cardView).setOnClickListener(){
++//
++//        }
++//        view.setOnClickListener(new View.OnClickListener() {
++//            @Override
++//            public void onClick(View v) {
++//                //CARREGA REGISTRO DE ACORDO COM O ITEM SELECIONADO
++//                int indice = produto.getId();
++//                //new Inicio().carregaCadastro(indice); FAIL - FORCE CLOSE
++//                //Inicio in = new Inicio().carregaCadastro(indice); - FAIL - FORCE CLOSE
++//                //in.carregaCadastro(indice); - FAIL - FORCE CLOSE
++////                carregaCadastro(indice);//MÉTODO NÃO ENCONTRADO
++//            }
++//        });
++        return convertView;
++
++    }
++}
+\ No newline at end of file
+Index: app/src/main/res/layout/content_noficacoes_pedidos.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/content_noficacoes_pedidos.xml	(date 1614282475000)
++++ app/src/main/res/layout/content_noficacoes_pedidos.xml	(date 1614282475000)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    app:layout_behavior="@string/appbar_scrolling_view_behavior"></androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/example/takedelivery/StatusPedido.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/takedelivery/StatusPedido.java	(date 1614276515000)
++++ app/src/main/java/com/example/takedelivery/StatusPedido.java	(date 1614276515000)
+@@ -0,0 +1,18 @@
++package com.example.takedelivery;
++
++public enum StatusPedido {
++    SAIU_PARA_ENTREGA("Saiu para entrega"),
++    PREPARANDO("Preparando Pedido"),
++    FINALIZADO("Finalizado"),
++    PENDENTE("Pendente aprovação");
++
++    private String descricao;
++
++    StatusPedido(String descricao) {
++        this.descricao = descricao;
++    }
++
++    public String getDescricao() {
++        return descricao;
++    }
++}
+Index: app/src/main/java/com/example/takedelivery/model/Pedido.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/takedelivery/model/Pedido.java	(date 1614276515000)
++++ app/src/main/java/com/example/takedelivery/model/Pedido.java	(date 1614276515000)
+@@ -0,0 +1,98 @@
++package com.example.takedelivery.model;
++
++import com.example.takedelivery.StatusPedido;
++
++public class Pedido {
++    private static int contadorId = 0;
++
++    int id;
++    String nomeCliente; //mudar para objeto cliente
++    String data;
++    String hora;
++    String endereco;
++    String numero;
++    String metodoDePagamento;
++    StatusPedido status;
++
++    public Pedido(String nomeCliente, String data, String hora, String endereco, String numero, String metodoDePagamento) {
++        this.nomeCliente = nomeCliente;
++        this.data = data;
++        this.hora = hora;
++        this.endereco = endereco;
++        this.numero = numero;
++        this.metodoDePagamento = metodoDePagamento;
++        this.id = contadorId++;
++    }
++
++    public int getId() {
++        return id;
++    }
++
++    public StatusPedido getStatus() {
++        return status;
++    }
++
++    public void setStatus(StatusPedido status) {
++        this.status = status;
++    }
++
++    public String getNomeCliente() {
++        return nomeCliente;
++    }
++
++    public void setNomeCliente(String nomeCliente) {
++        this.nomeCliente = nomeCliente;
++    }
++
++    public String getData() {
++        return data;
++    }
++
++    public void setData(String data) {
++        this.data = data;
++    }
++
++    public String getHora() {
++        return hora;
++    }
++
++    public void setHora(String hora) {
++        this.hora = hora;
++    }
++
++    public String getEndereco() {
++        return endereco;
++    }
++
++    public void setEndereco(String endereco) {
++        this.endereco = endereco;
++    }
++
++    public String getNumero() {
++        return numero;
++    }
++
++    public void setNumero(String numero) {
++        this.numero = numero;
++    }
++
++    public String getMetodoDePagamento() {
++        return metodoDePagamento;
++    }
++
++    public void setMetodoDePagamento(String metodoDePagamento) {
++        this.metodoDePagamento = metodoDePagamento;
++    }
++
++    @Override
++    public String toString() {
++        return "Pedido{" +
++                "nomeCliente='" + nomeCliente + '\'' +
++                ", data='" + data + '\'' +
++                ", hora='" + hora + '\'' +
++                ", endereco='" + endereco + '\'' +
++                ", numero='" + numero + '\'' +
++                ", metodoDePagamento='" + metodoDePagamento + '\'' +
++                '}';
++    }
++}
+Index: app/src/main/res/layout/activity_noficacoes_pedidos.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_noficacoes_pedidos.xml	(date 1614282475000)
++++ app/src/main/res/layout/activity_noficacoes_pedidos.xml	(date 1614282475000)
+@@ -0,0 +1,33 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    tools:context=".NoficacoesPedidosActivity">
++
++    <com.google.android.material.appbar.AppBarLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:theme="@style/Theme.TakeDelivery.AppBarOverlay">
++
++        <androidx.appcompat.widget.Toolbar
++            android:id="@+id/toolbar"
++            android:layout_width="match_parent"
++            android:layout_height="?attr/actionBarSize"
++            android:background="?attr/colorPrimary"
++            app:popupTheme="@style/Theme.TakeDelivery.PopupOverlay" />
++
++    </com.google.android.material.appbar.AppBarLayout>
++
++    <include layout="@layout/content_noficacoes_pedidos" />
++
++    <com.google.android.material.floatingactionbutton.FloatingActionButton
++        android:id="@+id/fab"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_gravity="bottom|end"
++        android:layout_margin="@dimen/fab_margin"
++        app:srcCompat="@android:drawable/ic_dialog_email" />
++
++</androidx.coordinatorlayout.widget.CoordinatorLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/example/takedelivery/adapter/TabsPagerAdapter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/takedelivery/adapter/TabsPagerAdapter.java	(date 1614281132000)
++++ app/src/main/java/com/example/takedelivery/adapter/TabsPagerAdapter.java	(date 1614281132000)
+@@ -0,0 +1,48 @@
++package com.example.takedelivery.adapter;
++
++import androidx.fragment.app.Fragment;
++import androidx.fragment.app.FragmentManager;
++import androidx.fragment.app.FragmentPagerAdapter;
++import androidx.fragment.app.FragmentStatePagerAdapter;
++
++import com.example.takedelivery.FirstFragment;
++import com.example.takedelivery.SecondFragment;
++
++public class TabsPagerAdapter extends FragmentStatePagerAdapter {
++    private static final int NUM_TABS = 3;
++
++    public TabsPagerAdapter(FragmentManager fm) {
++        super(fm);
++    }
++
++    @Override
++    public Fragment getItem(int position) {
++        switch(position){
++            case 0:
++                return FirstFragment.newInstance();
++            case 1:
++                return SecondFragment.newInstance();
++            default:
++                return FirstFragment.newInstance();
++        }
++    }
++
++    @Override
++    public int getCount() {
++        return NUM_TABS;
++    }
++
++    @Override
++    public CharSequence getPageTitle(int position) {
++
++        if (position == 0){
++            return "Tab 1";
++        }
++
++        if (position == 1){
++            return "Tab 2";
++        }
++
++        return "Tab 3";
++    }
++}
+Index: app/src/main/res/layout/layout_list_pedidos.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/layout_list_pedidos.xml	(date 1614272189000)
++++ app/src/main/res/layout/layout_list_pedidos.xml	(date 1614272189000)
+@@ -0,0 +1,115 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent">
++
++    <androidx.cardview.widget.CardView
++        android:id="@+id/cardView"
++        android:layout_width="0dp"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="16dp"
++        android:layout_marginEnd="16dp"
++        app:cardCornerRadius="10dp"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent">
++
++        <LinearLayout
++            android:layout_width="match_parent"
++            android:layout_height="match_parent"
++            android:layout_marginStart="10dp"
++            android:layout_marginTop="10dp"
++            android:layout_marginEnd="10dp"
++            android:layout_marginBottom="10dp"
++            android:orientation="vertical">
++
++            <LinearLayout
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:orientation="horizontal">
++
++                <TextView
++                    android:id="@+id/textViewIdPedido"
++                    android:layout_width="wrap_content"
++                    android:layout_height="wrap_content"
++                    android:layout_weight="1"
++                    android:text="Pedido 1"
++                    android:textColor="@color/coroficial"
++                    android:textStyle="bold" />
++
++                <TextView
++                    android:id="@+id/textViewData"
++                    android:layout_width="wrap_content"
++                    android:layout_height="wrap_content"
++                    android:layout_weight="1"
++                    android:text="25/02  - 11:05"
++                    android:textColor="@color/coroficial"
++                    android:textStyle="bold"/>
++
++            </LinearLayout>
++
++            <TextView
++                android:id="@+id/textView18"
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:layout_weight="1"
++                android:text="Cliente"
++                android:textColor="#0B0B0B"
++                android:textStyle="bold" />
++
++            <TextView
++                android:id="@+id/textViewNomeCliente"
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:text="Raynara Silva Lima" />
++
++            <TextView
++                android:id="@+id/textView9"
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:text="Endereço"
++                android:textColor="#090909"
++                android:textStyle="bold" />
++
++            <TextView
++                android:id="@+id/textView8"
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:text="Rua Crispim Almeida, 1415" />
++
++            <TextView
++                android:id="@+id/textView15"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:text="Mone Castelo" />
++
++            <TextView
++                android:id="@+id/textView16"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:text="Fortaleza - CE" />
++
++            <TextView
++                android:id="@+id/textView17"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:text="Forma de pagamento"
++                android:textColor="#070707"
++                android:textStyle="bold" />
++
++            <TextView
++                android:id="@+id/textView14"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:text="Pagamento pelo aplicativo" />
++
++            <Button
++                android:id="@+id/button7"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:text="Liberar para a entrega" />
++        </LinearLayout>
++
++    </androidx.cardview.widget.CardView>
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/content_empresa.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n    xmlns:tools=\"http://schemas.android.com/tools\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    android:background=\"@color/cordefundo\"\n    app:layout_behavior=\"@string/appbar_scrolling_view_behavior\">\n\n    <LinearLayout\n        android:id=\"@+id/linearLayout3\"\n        android:layout_width=\"0dp\"\n        android:layout_height=\"0dp\"\n        android:layout_marginStart=\"16dp\"\n        android:layout_marginTop=\"8dp\"\n        android:layout_marginEnd=\"16dp\"\n        android:orientation=\"vertical\"\n        app:layout_constraintBottom_toBottomOf=\"parent\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toTopOf=\"parent\">\n\n        <TextView\n            android:id=\"@+id/textViewNome\"\n            android:layout_width=\"match_parent\"\n            android:layout_height=\"wrap_content\"\n            android:text=\"Delivery Menu\"\n            android:textColor=\"#040303\"\n            android:textSize=\"24sp\"\n            android:textStyle=\"bold\" />\n\n        <LinearLayout\n            android:layout_width=\"match_parent\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginTop=\"30dp\"\n            android:orientation=\"horizontal\">\n\n            <LinearLayout\n                android:layout_width=\"190dp\"\n                android:layout_height=\"wrap_content\"\n                android:orientation=\"vertical\">\n\n                <TextView\n                    android:id=\"@+id/textView3\"\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"wrap_content\"\n                    android:text=\"Pedidos hoje\"\n                    android:textColor=\"@color/coroficial\"\n                    android:textSize=\"18sp\"\n                    android:textStyle=\"bold\" />\n\n                <TextView\n                    android:id=\"@+id/textView4\"\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"wrap_content\"\n                    android:layout_marginTop=\"10dp\"\n                    android:text=\"0\"\n                    android:textColor=\"#0C0C0C\"\n                    android:textSize=\"18sp\" />\n            </LinearLayout>\n\n            <LinearLayout\n                android:layout_width=\"match_parent\"\n                android:layout_height=\"match_parent\"\n                android:orientation=\"vertical\">\n\n                <TextView\n                    android:id=\"@+id/textView5\"\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"wrap_content\"\n                    android:text=\"Valor hoje\"\n                    android:textColor=\"@color/coroficial\"\n                    android:textSize=\"18sp\"\n                    android:textStyle=\"bold\" />\n\n                <TextView\n                    android:id=\"@+id/textView6\"\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"wrap_content\"\n                    android:layout_marginTop=\"10dp\"\n                    android:text=\"0\"\n                    android:textColor=\"#0C0C0C\"\n                    android:textSize=\"18sp\" />\n            </LinearLayout>\n        </LinearLayout>\n\n        <Button\n            android:id=\"@+id/button6\"\n            android:layout_width=\"match_parent\"\n            android:layout_height=\"wrap_content\"\n            android:text=\"Ver pedidos\" />\n\n        <Button\n            android:id=\"@+id/button5\"\n            android:layout_width=\"match_parent\"\n            android:layout_height=\"wrap_content\"\n            android:layout_marginTop=\"50dp\"\n            android:onClick=\"verCardapio\"\n            android:text=\"Cardápio\" />\n\n    </LinearLayout>\n\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/content_empresa.xml	(revision be40fda3873d3238718e46051b2b64dd4a911390)
++++ app/src/main/res/layout/content_empresa.xml	(date 1614272719000)
+@@ -88,6 +88,7 @@
+             android:id="@+id/button6"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
++            android:onClick="verPedidos"
+             android:text="Ver pedidos" />
+ 
+         <Button
+Index: app/src/main/res/layout/fragment_first.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/fragment_first.xml	(date 1614278796000)
++++ app/src/main/res/layout/fragment_first.xml	(date 1614278796000)
+@@ -0,0 +1,115 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent">
++
++    <androidx.cardview.widget.CardView
++        android:id="@+id/cardView"
++        android:layout_width="0dp"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="16dp"
++        android:layout_marginEnd="16dp"
++        app:cardCornerRadius="10dp"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent">
++
++        <LinearLayout
++            android:layout_width="match_parent"
++            android:layout_height="match_parent"
++            android:layout_marginStart="10dp"
++            android:layout_marginTop="10dp"
++            android:layout_marginEnd="10dp"
++            android:layout_marginBottom="10dp"
++            android:orientation="vertical">
++
++            <LinearLayout
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:orientation="horizontal">
++
++                <TextView
++                    android:id="@+id/textViewIdPedido"
++                    android:layout_width="wrap_content"
++                    android:layout_height="wrap_content"
++                    android:layout_weight="1"
++                    android:text="Pedido 1"
++                    android:textColor="@color/coroficial"
++                    android:textStyle="bold" />
++
++                <TextView
++                    android:id="@+id/textViewData"
++                    android:layout_width="wrap_content"
++                    android:layout_height="wrap_content"
++                    android:layout_weight="1"
++                    android:text="25/02  - 11:05"
++                    android:textColor="@color/coroficial"
++                    android:textStyle="bold"/>
++
++            </LinearLayout>
++
++            <TextView
++                android:id="@+id/textView18"
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:layout_weight="1"
++                android:text="Cliente"
++                android:textColor="#0B0B0B"
++                android:textStyle="bold" />
++
++            <TextView
++                android:id="@+id/textViewNomeCliente"
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:text="Raynara Silva Lima" />
++
++            <TextView
++                android:id="@+id/textView9"
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:text="Endereço"
++                android:textColor="#090909"
++                android:textStyle="bold" />
++
++            <TextView
++                android:id="@+id/textView8"
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:text="Rua Crispim Almeida, 1415" />
++
++            <TextView
++                android:id="@+id/textView15"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:text="Mone Castelo" />
++
++            <TextView
++                android:id="@+id/textView16"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:text="Fortaleza - CE" />
++
++            <TextView
++                android:id="@+id/textView17"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:text="Forma de pagamento"
++                android:textColor="#070707"
++                android:textStyle="bold" />
++
++            <TextView
++                android:id="@+id/textView14"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:text="Pagamento pelo aplicativo" />
++
++            <Button
++                android:id="@+id/button7"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:text="Liberar para a entrega" />
++        </LinearLayout>
++
++    </androidx.cardview.widget.CardView>
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/fragment_second.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/fragment_second.xml	(date 1614225446000)
++++ app/src/main/res/layout/fragment_second.xml	(date 1614225446000)
+@@ -0,0 +1,27 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    tools:context=".SecondFragment">
++
++    <TextView
++        android:id="@+id/textview_second"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        app:layout_constraintBottom_toTopOf="@id/button_second"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent" />
++
++    <Button
++        android:id="@+id/button_second"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="@string/previous"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@id/textview_second" />
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/example/takedelivery/FirstFragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/takedelivery/FirstFragment.java	(date 1614279131000)
++++ app/src/main/java/com/example/takedelivery/FirstFragment.java	(date 1614279131000)
+@@ -0,0 +1,37 @@
++package com.example.takedelivery;
++
++import android.os.Bundle;
++import android.view.LayoutInflater;
++import android.view.View;
++import android.view.ViewGroup;
++
++import androidx.annotation.NonNull;
++import androidx.fragment.app.Fragment;
++
++public class FirstFragment extends Fragment {
++    public static FirstFragment newInstance() {
++        FirstFragment fragment = new FirstFragment();
++        return fragment;
++    }
++
++    public FirstFragment() {
++        // Deve existir um construtor vazio
++        // na classe que estende um Fragment
++    }
++
++    @Override
++    public void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        if (getArguments() != null) {
++        }
++    }
++
++    @Override
++    public View onCreateView(LayoutInflater inflater, ViewGroup container,
++                             Bundle savedInstanceState) {
++        // Inflate the layout for this fragment
++        return inflater.inflate(R.layout.fragment_first, container, false);
++    }
++
++
++}
+\ No newline at end of file
+Index: app/src/main/java/com/example/takedelivery/SecondFragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/takedelivery/SecondFragment.java	(date 1614282400000)
++++ app/src/main/java/com/example/takedelivery/SecondFragment.java	(date 1614282400000)
+@@ -0,0 +1,37 @@
++package com.example.takedelivery;
++
++import android.os.Bundle;
++import android.view.LayoutInflater;
++import android.view.View;
++import android.view.ViewGroup;
++
++import androidx.annotation.NonNull;
++import androidx.fragment.app.Fragment;
++
++public class SecondFragment extends Fragment {
++
++    public static SecondFragment newInstance() {
++        SecondFragment fragment = new SecondFragment();
++        return fragment;
++    }
++
++    public SecondFragment() {
++        // Deve existir um construtor vazio
++        // na classe que estende um Fragment
++    }
++
++    @Override
++    public void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        if (getArguments() != null) {
++        }
++    }
++
++    @Override
++    public View onCreateView(LayoutInflater inflater, ViewGroup container,
++                             Bundle savedInstanceState) {
++        // Inflate the layout for this fragment
++        return inflater.inflate(R.layout.fragment_second, container, false);
++    }
++
++}
+\ No newline at end of file
+Index: app/src/main/res/layout/content_pedidos_empresa.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/content_pedidos_empresa.xml	(date 1614284971000)
++++ app/src/main/res/layout/content_pedidos_empresa.xml	(date 1614284971000)
+@@ -0,0 +1,53 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    android:orientation="vertical" android:padding="4dip"
++    android:gravity="center_horizontal"
++    android:layout_width="match_parent" android:layout_height="match_parent">
++
++
++    <com.google.android.material.tabs.TabLayout
++        android:id="@+id/tabs"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content">
++
++                <com.google.android.material.tabs.TabItem
++                    android:layout_width="wrap_content"
++                    android:layout_height="wrap_content"
++                    android:text="Monday" />
++
++                <com.google.android.material.tabs.TabItem
++                    android:layout_width="wrap_content"
++                    android:layout_height="wrap_content"
++                    android:text="Tuesday" />
++
++        <!--        <com.google.android.material.tabs.TabItem-->
++        <!--            android:layout_width="wrap_content"-->
++        <!--            android:layout_height="wrap_content"-->
++        <!--            android:text="Wednesday" />-->
++    </com.google.android.material.tabs.TabLayout>
++
++    <androidx.viewpager.widget.ViewPager
++        android:id="@+id/pager"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content" />
++</LinearLayout>
++
++
++
++<!--<?xml version="1.0" encoding="utf-8"?>-->
++<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
++<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
++<!--    android:layout_width="match_parent"-->
++<!--    android:layout_height="match_parent"-->
++<!--    app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
++
++<!--    <ListView-->
++<!--        android:id="@+id/listViewPedidos"-->
++<!--        android:layout_width="0dp"-->
++<!--        android:layout_height="0dp"-->
++<!--        app:layout_constraintBottom_toBottomOf="parent"-->
++<!--        app:layout_constraintEnd_toEndOf="parent"-->
++<!--        app:layout_constraintStart_toStartOf="parent"-->
++<!--        app:layout_constraintTop_toTopOf="parent" />-->
++<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
+Index: app/src/main/java/com/example/takedelivery/PedidosEmpresaActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/takedelivery/PedidosEmpresaActivity.java	(date 1614281591000)
++++ app/src/main/java/com/example/takedelivery/PedidosEmpresaActivity.java	(date 1614281591000)
+@@ -0,0 +1,69 @@
++package com.example.takedelivery;
++
++import android.os.Bundle;
++
++import com.example.takedelivery.adapter.AdapterListViewPedidos;
++import com.example.takedelivery.adapter.AdapterListViewPersonalizada;
++import com.example.takedelivery.adapter.TabsPagerAdapter;
++import com.example.takedelivery.model.Pedido;
++import com.example.takedelivery.model.Produto;
++import com.google.android.material.floatingactionbutton.FloatingActionButton;
++import com.google.android.material.snackbar.Snackbar;
++import com.google.android.material.tabs.TabLayout;
++
++import androidx.appcompat.app.AppCompatActivity;
++import androidx.appcompat.widget.Toolbar;
++import androidx.viewpager.widget.ViewPager;
++
++import android.view.View;
++import android.widget.AdapterView;
++import android.widget.ListView;
++
++import java.util.ArrayList;
++
++public class PedidosEmpresaActivity extends AppCompatActivity {
++    public static ArrayList<Pedido> pedidos;
++    int selected;
++    TabsPagerAdapter adapter;
++
++    ListView listViewPedidos;
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.activity_pedidos_empresa);
++        Toolbar toolbar = findViewById(R.id.toolbar);
++        setSupportActionBar(toolbar);
++        TabLayout tabs = (TabLayout) findViewById(R.id.tabs);
++        ViewPager pager = (ViewPager) findViewById(R.id.pager);
++        TabsPagerAdapter adapter = new TabsPagerAdapter(getSupportFragmentManager());
++
++        pager.setAdapter(adapter);
++        tabs.setupWithViewPager(pager);
++
++//        pedidos = new ArrayList<Pedido>();
++//
++//        pedidos.add(new Pedido("Raynara Silva Lima", "25/02", "11:05", "Rua Crispim Almeida", "1415", "Mastercard credido"));
++//        pedidos.add(new Pedido("Raynara Silva Lima", "25/02", "11:05", "Rua Crispim Almeida", "1415", "Mastercard credido"));
++//
++//        selected = -1;
++//
++//        adapter = new AdapterListViewPedidos(pedidos, this);
++//
++//        listViewPedidos = (ListView) findViewById(R.id.listViewPedidos);
++//
++//        listViewPedidos.setAdapter(adapter);
++//        listViewPedidos.setSelector(R.color.corSelect);
++//
++//
++//        listViewPedidos.setOnItemClickListener(new android.widget.AdapterView.OnItemClickListener() {
++//
++//            @Override
++//            public void onItemClick(AdapterView<?> arg0, View arg1,
++//                                    int position, long arg3) {
++//
++//                selected = position;
++//            }
++//
++//        });
++    }
++}
+\ No newline at end of file
