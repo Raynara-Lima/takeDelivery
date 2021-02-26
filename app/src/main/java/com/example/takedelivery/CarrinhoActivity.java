@@ -11,6 +11,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.math.BigDecimal;
 import java.text.NumberFormat;
@@ -65,6 +66,6 @@ public class CarrinhoActivity extends AppCompatActivity {
     public void fazerPedido(View view) {
         Intent intent = new Intent(this, ClienteActivity.class);
         startActivity(intent);
-
+        Toast.makeText(getApplicationContext(), "Pedido realizado", Toast.LENGTH_LONG).show();
     }
 }

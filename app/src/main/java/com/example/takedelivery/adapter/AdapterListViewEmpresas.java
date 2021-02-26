@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.example.takedelivery.R;
 import com.example.takedelivery.model.Empresa;
-import com.example.takedelivery.model.Pedido;
+
 
 import java.util.List;
 
