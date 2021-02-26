@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/cordefundo"
-    tools:context=".ClientActivity">
+    tools:context=".AdicionaProdutoCarrinhoActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -22,9 +21,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <include
-        layout="@layout/content_client"
-        android:layout_width="427dp"
-        android:layout_height="match_parent" />
-
+        layout="@layout/content_adiciona_produto_carrinho"
+        android:onClick="addProCarrinho" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
