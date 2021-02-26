@@ -9,7 +9,40 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TakeDelivery">
-        <activity android:name=".Choice"></activity>
+        <activity
+            android:name=".CarrinhoActivity"
+            android:label="Carrinho"
+            android:theme="@style/Theme.TakeDelivery.NoActionBar" />
+        <activity
+            android:name=".AdicionaProdutoCarrinhoActivity"
+            android:label="Asicionar ao carrinho"
+            android:theme="@style/Theme.TakeDelivery.NoActionBar"/>
+        <activity
+            android:name=".ClienteActivity"
+            android:label="Cliente"
+            android:theme="@style/Theme.TakeDelivery.NoActionBar" />
+        <activity
+            android:name=".ClientActivity"
+            android:label="Take Delivery"
+            android:theme="@style/Theme.TakeDelivery.NoActionBar" />
+        <activity
+            android:name=".PedidosEmpresaActivity"
+            android:label="@string/title_activity_pedidos_empresa"
+            android:theme="@style/Theme.TakeDelivery.NoActionBar" />
+        <activity
+            android:name=".EmpresaActivity"
+            android:label="@string/title_activity_empresa"
+            android:theme="@style/Theme.TakeDelivery.NoActionBar" />
+        <activity
+            android:name=".CadastroProdutoActivity"
+            android:label="@string/title_activity_cadastro_produto"
+            android:theme="@style/Theme.TakeDelivery.NoActionBar" />
+        <activity
+            android:name=".CardapioActivity"
+            android:label="Cardápio"
+            android:theme="@style/Theme.TakeDelivery.NoActionBar" />
+
+        <activity android:name=".Choice" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
