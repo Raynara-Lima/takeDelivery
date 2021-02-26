@@ -15,7 +15,7 @@
             android:theme="@style/Theme.TakeDelivery.NoActionBar" />
         <activity
             android:name=".AdicionaProdutoCarrinhoActivity"
-            android:label="Asicionar ao carrinho"
+            android:label="Adicionar ao carrinho"
             android:theme="@style/Theme.TakeDelivery.NoActionBar"/>
         <activity
             android:name=".ClienteActivity"
