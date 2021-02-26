@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="20dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
     android:background="@color/cordefundo"
 
@@ -35,24 +36,24 @@
         android:id="@+id/textViewNomeRest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginLeft="16dp"
         android:text="TextView"
         android:textColor="@color/coroficial"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/listViewProdutos"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
         android:id="@+id/listViewProdutos"
-        android:layout_width="410dp"
-        android:layout_height="612dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="40dp"
         android:backgroundTint="@color/cordefundo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textViewNomeRest">
+        app:layout_constraintTop_toTopOf="parent">
 
     </ListView>
 
