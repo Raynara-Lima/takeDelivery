@@ -6,15 +6,15 @@ public class Produto {
     int id;
     String nome;
     String descricao;
-    BigDecimal preco;
+    Float preco;
     private static int contadorId = 0;
 
 
-    public Produto(String nome, String descricao, BigDecimal preco) {
+    public Produto(int id, String nome, String descricao, Float preco) {
         this.nome = nome;
         this.descricao = descricao;
         this.preco = preco;
-        this.id = contadorId++;
+        this.id = id;
 
     }
 
@@ -34,7 +34,7 @@ public class Produto {
         return descricao;
     }
 
-    public BigDecimal getPreco() {
+    public Float getPreco() {
         return preco;
     }
 
@@ -46,7 +46,7 @@ public class Produto {
         this.descricao = descricao;
     }
 
-    public void setPreco(BigDecimal preco) {
+    public void setPreco( Float preco) {
         this.preco = preco;
     }
 

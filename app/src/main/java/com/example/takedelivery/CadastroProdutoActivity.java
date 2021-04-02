@@ -3,8 +3,11 @@ package com.example.takedelivery;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.takedelivery.model.Produto;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -18,7 +21,10 @@ public class CadastroProdutoActivity extends AppCompatActivity {
     EditText editTextPreco;
 
     boolean edit;
-    int idProdutoEditar;
+    String idProdutoEditar;
+    int id;
+    private FirebaseDatabase mDatabase = FirebaseDatabase.getInstance ();
+    private DatabaseReference mDatabaseReference = mDatabase.getReference ();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,15 +39,16 @@ public class CadastroProdutoActivity extends AppCompatActivity {
         edit = false;
 
         if( getIntent().getExtras() != null ){
+            if(getIntent().getExtras().get( "id" ) != null) id = (int) getIntent().getExtras().get( "id" );
             String nome = (String) getIntent().getExtras().get( "nome" );
             String descricao = (String) getIntent().getExtras().get( "descricao" );
-            String preco =  getIntent().getExtras().get( "preco" ).toString();
-            idProdutoEditar = (int) getIntent().getExtras().get( "id" );
+            Float preco = (Float) getIntent().getExtras().get( "preco" );
+            if( getIntent().getExtras().get( "idEdit" ) != null) idProdutoEditar =  getIntent().getExtras().get( "idEdit" ).toString();
             editTextNome.setText(nome);
             editTextDescricao.setText(descricao);
-            editTextPreco.setText(preco);
+            editTextPreco.setText(String.valueOf(preco));
 
-            edit = true;
+            if(idProdutoEditar != null) edit = true;
         }
 
     }
@@ -63,6 +70,17 @@ public class CadastroProdutoActivity extends AppCompatActivity {
         intent.putExtra("preco", preco );
         if(edit) {
             intent.putExtra("id", idProdutoEditar);
+            mDatabaseReference = mDatabase.getReference ().child ("produtos").child(idProdutoEditar);
+            mDatabaseReference.child("nome").setValue(nome);
+            mDatabaseReference.child("descricao").setValue(descricao);
+            mDatabaseReference.child("preco").setValue( new Float(preco));
+
+
+        }else{
+            Produto produto = new Produto(id, nome, descricao, new Float(preco));
+            mDatabaseReference = mDatabase.getReference ().child ("produtos").child(String.valueOf(id));
+            mDatabaseReference.setValue (produto);
+
         }
         setResult( Constants.RESULT_ADD, intent );
         finish();

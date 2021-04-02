@@ -3,18 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/adicionar"
-        android:icon="@drawable/ic_baseline_add_circle_24"
-        android:title="Add"
-        app:showAsAction="always" />
-    <item
-        android:id="@+id/editar"
-        android:icon="@drawable/ic_baseline_edit_24"
-        android:title="Edit"
-        app:showAsAction="always" />
-    <item
         android:id="@+id/excluir"
-        android:icon="@drawable/ic_baseline_delete_outline_24"
+        android:icon="@drawable/ic_bag_buy_cart_market_shop_shopping_tote_icon_123191__1_"
         android:title="Del"
         app:showAsAction="always" />
 

@@ -2,6 +2,7 @@ package com.example.takedelivery;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -10,29 +11,21 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.takedelivery.adapter.AdapterListViewPersonalizada;
-import android.content.Intent;
-import android.os.Bundle;
 
-import com.example.takedelivery.adapter.AdapterListViewPersonalizada;
 import com.example.takedelivery.model.Produto;
-import androidx.annotation.Nullable;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
-import android.os.Parcelable;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.Toast;
-
-import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class CardapioEmpresaActivity extends AppCompatActivity {
@@ -42,7 +35,9 @@ public class CardapioEmpresaActivity extends AppCompatActivity {
     AdapterListViewPersonalizada adapter;
 
     ListView listViewProdutos;
-
+    BancoDeDados bancoDeDados;
+    private FirebaseDatabase mDatabase = FirebaseDatabase.getInstance ();
+    private DatabaseReference mDatabaseReference = mDatabase.getReference ();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +46,28 @@ public class CardapioEmpresaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cardapio);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        mDatabaseReference.child("produtos").addValueEventListener(new ValueEventListener() {
+            @Override//                activity.updateCardapio( cardapio );
 
-        cardapio = CardapioActivity.cardapio;
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                String value = dataSnapshot.getValue(String.class);
+                cardapio.clear();
+
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    cardapio.add(ds.getValue(Produto.class));
+                    Log.d(  "firebase", "Value is: " + ds.getValue(Produto.class));
+
+                }
+                montarListView();
+            }
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+//        cardapio = CardapioEmpresaActivity.cardapio;
 //        CardapioActivity.cardapio = null;
 //        cardapio = new ArrayList<Produto>();
 //        cardapio.add(new Produto("Vatapá de frango","Acompanha arroz branco e farofinha de mandioca. Vatapá de frando desfiado e finalizado com batata palha.", new BigDecimal(19.90)));
@@ -65,6 +80,9 @@ public class CardapioEmpresaActivity extends AppCompatActivity {
 //        cardapio.add(new Produto("Vatapá de frango","Acompanha arroz branco e farofinha de mandioca. Vatapá de frando desfiado e finalizado com batata palha.", new BigDecimal(19.90)));
 //        cardapio.add(new Produto("Frango com salsa de ervas frescas","Acompanha arroz branco e purê de batatas. Filé de peito de frango em tiras adicnado de molho a base de azeite com ervas frescas.", new BigDecimal(19.90)));
 
+
+    }
+    public void montarListView(){
         adapter = new AdapterListViewPersonalizada(cardapio, this);
 
         listViewProdutos = (ListView) findViewById(R.id.listViewProdutos);
@@ -72,6 +90,8 @@ public class CardapioEmpresaActivity extends AppCompatActivity {
         listViewProdutos.setAdapter(adapter);
         listViewProdutos.setSelector(R.color.corSelect);
 
+//        bancoDeDados = new BancoDeDados( this, listViewProdutos );
+//        bancoDeDados.start();
 
         listViewProdutos.setOnItemClickListener(new android.widget.AdapterView.OnItemClickListener() {
 
@@ -83,8 +103,8 @@ public class CardapioEmpresaActivity extends AppCompatActivity {
             }
 
         });
-    }
 
+    }
     public boolean onCreateOptionsMenu(Menu menu) {
 
         MenuInflater inflater = getMenuInflater();
@@ -92,10 +112,10 @@ public class CardapioEmpresaActivity extends AppCompatActivity {
 
         return super.onCreateOptionsMenu(menu);
     }
+    public boolean onOptionsItemSelected( MenuItem item ) {
 
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        switch (item.getItemId()) {
+        switch(item.getItemId())
+        {
             case R.id.adicionar:
                 adicionarProduto();
                 break;
@@ -110,63 +130,81 @@ public class CardapioEmpresaActivity extends AppCompatActivity {
         return true;
     }
 
-    public void adicionarProduto() {
-        Intent intent = new Intent(this, CadastroProdutoActivity.class);
-        startActivityForResult(intent, Constants.REQUEST_ADD);
-    }
+    public void adicionarProduto(){
+        Intent intent = new Intent( this, CadastroProdutoActivity.class );
+        int idNovoProduto;
+        if(cardapio.isEmpty()){
+            idNovoProduto = 0;
+        }else {
+            idNovoProduto = cardapio.get(cardapio.size() - 1).getId() + 1;
+        }
+        intent.putExtra( "id", idNovoProduto );
 
-    public void editarProduto() {
-        Intent intent = new Intent(this, CadastroProdutoActivity.class);
+
+
+        startActivityForResult( intent, Constants.REQUEST_ADD );
+    }
+    public void editarProduto(){
+        Intent intent = new Intent( this, CadastroProdutoActivity.class );
         Produto produto = cardapio.get(selected);
 
-        intent.putExtra("id", produto.getId());
-        intent.putExtra("nome", produto.getNome());
-        intent.putExtra("descricao", produto.getDescricao());
-        intent.putExtra("preco", produto.getPreco());
+        intent.putExtra( "idEdit", produto.getId() );
+        intent.putExtra( "nome", produto.getNome() );
+        intent.putExtra( "descricao", produto.getDescricao() );
+        intent.putExtra( "preco", produto.getPreco() );
 
-        startActivityForResult(intent, Constants.REQUEST_EDIT);
+        startActivityForResult( intent, Constants.REQUEST_EDIT );
     }
+    public void excluirProduto(){
+       mDatabase.getReference ().child ("produtos").child( String.valueOf(cardapio.get( selected ).getId())).removeValue();
 
-    public void excluirProduto() {
-        if (cardapio.size() > 0) {
-            cardapio.remove(selected);
-            adapter.notifyDataSetChanged();
-            ;
+        if( cardapio.size() > 0 ){
+            cardapio.remove( selected );
+            adapter.notifyDataSetChanged();;
         } else {
             selected = -1;
         }
 
     }
 
+    public void updateCardapio( ArrayList<Produto> lista ){
+//        progressBar.setVisibility( View.INVISIBLE );
 
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        Produto[] lista = cardapio;
+        cardapio.clear();
+        cardapio.addAll(lista);
+
+        adapter.notifyDataSetChanged();;
+    }
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data ) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == Constants.REQUEST_ADD && resultCode == Constants.RESULT_ADD) {
-            String nome = (String) data.getExtras().get("nome");
-            String descricao = (String) data.getExtras().get("descricao");
-            String preco = (String) data.getExtras().get("preco");
-            Produto produto = new Produto(nome, descricao, new BigDecimal(preco));
-            cardapio.add(produto);
-
-            adapter.notifyDataSetChanged();
-
-        } else if (requestCode == Constants.REQUEST_EDIT && resultCode == Constants.RESULT_ADD) {
-            String nome = (String) data.getExtras().get("nome");
-            String descricao = (String) data.getExtras().get("descricao");
-            String preco = (String) data.getExtras().get("preco");
-            int idEdit = (int) data.getExtras().get("id");
-
-            for (Produto produto : cardapio) {
-                if (produto.getId() == idEdit) {
-                    produto.setNome(nome);
-                    produto.setDescricao(descricao);
-                    produto.setPreco(new BigDecimal(preco));
-                }
-            }
-            adapter.notifyDataSetChanged();
-        } else if (resultCode == Constants.RESULT_CANCEL) {
-            Toast.makeText(this, "Cancelado",
+//
+//        if( requestCode == Constants.REQUEST_ADD && resultCode == Constants.RESULT_ADD ){
+//            String nome = ( String )data.getExtras().get("nome");
+//            String descricao = ( String )data.getExtras().get("descricao");
+//            String preco = (String) data.getExtras().get("preco");
+//            Produto produto = new Produto( nome, descricao, new Float(preco ));
+//            cardapio.add( produto );
+//
+//            adapter.notifyDataSetChanged();
+//
+//        }else if( requestCode == Constants.REQUEST_EDIT && resultCode == Constants.RESULT_ADD ){
+//            String nome = ( String )data.getExtras().get("nome");
+//            String descricao = ( String )data.getExtras().get("descricao");
+//            String preco = (String) data.getExtras().get("preco");
+//            int idEdit = (int)data.getExtras().get( "id" );
+//
+//            for( Produto produto: cardapio ){
+//                if( produto.getId() == idEdit ){
+//                    produto.setNome(nome);
+//                    produto.setDescricao(descricao);
+//                    produto.setPreco(new Float(preco));
+//                }
+//            }
+//            adapter.notifyDataSetChanged();
+//        } else
+        if( resultCode == Constants.RESULT_CANCEL ){
+            Toast.makeText( this,"Cancelado",
                     Toast.LENGTH_SHORT).show();
         }
 

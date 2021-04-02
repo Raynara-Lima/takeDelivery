@@ -46,9 +46,9 @@ public class CadastroEmpresaActivity extends AppCompatActivity {
 //        finish();
 //    }
 //
-//    public void adicionar( View view ){
+//    public void cadastrar( View view ){
 //        Intent intent = new Intent();
-//
+//        new Empresa("28.046.882/0001-45", "Delivery Menu", "8599568791", "60125151", "CE", "Fortaleza", "Dionisio Torres", "Osvaldo Cruz", "2085", Categoria.BRASILEIRA)
 //        String nome = editTextNome.getText().toString();
 //        String descricao = editTextDescricao.getText().toString();
 //        String preco = editTextPreco.getText().toString();

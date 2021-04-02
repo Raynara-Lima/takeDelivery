@@ -23,8 +23,8 @@ public class CarrinhoActivity extends AppCompatActivity {
     TextView textViewNomeEmpresa;
 
     String nome ;
-    BigDecimal preco ;
-    BigDecimal total ;
+    Float preco ;
+    Float total ;
     String nomeEmpresa;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +40,8 @@ public class CarrinhoActivity extends AppCompatActivity {
 
         if( getIntent().getExtras() != null ){
             nome = (String) getIntent().getExtras().get( "nome" );
-            preco = (BigDecimal) getIntent().getExtras().get( "preco" );
-            total = (BigDecimal) getIntent().getExtras().get( "precoTotal" );
+            preco = (Float) getIntent().getExtras().get( "preco" );
+            total = (Float) getIntent().getExtras().get( "precoTotal" );
             nomeEmpresa = (String) getIntent().getExtras().get( "nomeEmpresa" );
 
             textViewNomeEmpresa.setText(nomeEmpresa);

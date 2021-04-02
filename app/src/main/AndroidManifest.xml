@@ -10,13 +10,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TakeDelivery">
         <activity
+            android:name=".CadastroClienteActivity"
+            android:label="@string/title_activity_cadastro_cliente"
+            android:theme="@style/Theme.TakeDelivery.NoActionBar"></activity>
+        <activity
+            android:name=".HistoricoPedidosCliActivity"
+            android:label="@string/title_activity_historico_pedidos_cli"
+            android:theme="@style/Theme.TakeDelivery.NoActionBar" />
+        <activity
+            android:name=".ResumoPedidoActivity"
+            android:label="@string/title_activity_resumo_pedido"
+            android:theme="@style/Theme.TakeDelivery.NoActionBar" />
+        <activity
             android:name=".CarrinhoActivity"
             android:label="Carrinho"
             android:theme="@style/Theme.TakeDelivery.NoActionBar" />
         <activity
             android:name=".AdicionaProdutoCarrinhoActivity"
             android:label="Asicionar ao carrinho"
-            android:theme="@style/Theme.TakeDelivery.NoActionBar"/>
+            android:theme="@style/Theme.TakeDelivery.NoActionBar" />
         <activity
             android:name=".ClienteActivity"
             android:label="Cliente"
@@ -41,7 +53,10 @@
             android:name=".CardapioActivity"
             android:label="Cardápio"
             android:theme="@style/Theme.TakeDelivery.NoActionBar" />
-
+        <activity
+            android:name=".CardapioEmpresaActivity"
+            android:label="Cardápio"
+            android:theme="@style/Theme.TakeDelivery.NoActionBar" />
         <activity android:name=".Choice" />
         <activity android:name=".MainActivity">
             <intent-filter>

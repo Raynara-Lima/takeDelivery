@@ -6,7 +6,6 @@ public class Empresa {
     int id;
     String cnpj;
     String nomeFantasia;
-//    String razaoSocial;
     String telefone;
     String cep;
     String estado;

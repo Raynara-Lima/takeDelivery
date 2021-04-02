@@ -25,7 +25,7 @@ public class AdicionaProdutoCarrinhoActivity extends AppCompatActivity {
 
     String nome ;
     String descricao ;
-    BigDecimal preco ;
+    Float preco ;
     String nomeEmpresa;
 
     @Override
@@ -43,7 +43,7 @@ public class AdicionaProdutoCarrinhoActivity extends AppCompatActivity {
         if( getIntent().getExtras() != null ){
             nome = (String) getIntent().getExtras().get( "nome" );
              descricao = (String) getIntent().getExtras().get( "descricao" );
-             preco = (BigDecimal) getIntent().getExtras().get( "preco" );
+             preco = (Float) getIntent().getExtras().get( "preco" );
             nomeEmpresa = (String) getIntent().getExtras().get( "nomeEmpresa" );
 
             editTextNome.setText(nome);
@@ -57,8 +57,8 @@ public class AdicionaProdutoCarrinhoActivity extends AppCompatActivity {
         Intent intent = new Intent(this, CarrinhoActivity.class);
         editTextQtd = findViewById( R.id.editTexQtd );
         String qtd = editTextQtd.getText().toString();
-        BigDecimal quantidade = new BigDecimal(qtd);
-        BigDecimal valorTotal = preco.multiply(quantidade);
+        Float quantidade = new Float(qtd);
+        Float valorTotal = preco * quantidade;
         intent.putExtra("nomeEmpresa", nomeEmpresa );
         intent.putExtra("nome", nome );
 

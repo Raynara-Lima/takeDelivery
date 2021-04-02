@@ -16,6 +16,9 @@
     <string name="title_activity_pedidos_empresa">PedidosEmpresaActivity</string>
     <string name="title_activity_cliente">ClienteActivity</string>
     <string name="title_activity_adiciona_produto_carrinho">AdicionaProdutoCarrinhoActivity</string>
+    <string name="title_activity_resumo_pedido">ResumoPedidoActivity</string>
+    <string name="title_activity_historico_pedidos_cli">HistoricoPedidosCliActivity</string>
+    <string name="title_activity_cadastro_cliente">CadastroClienteActivity</string>
 
 
 </resources>
