@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "821616217053",
+    "firebase_url": "https://takedelivery-1fedb-default-rtdb.firebaseio.com",
+    "project_id": "takedelivery-1fedb",
+    "storage_bucket": "takedelivery-1fedb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:821616217053:android:cfd214d86245d363274434",
+        "android_client_info": {
+          "package_name": "com.example.takedelivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "821616217053-fc1n50dnlb3ie4rumifolp1tkj8896n0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.takedelivery",
+            "certificate_hash": "eb331e51efa8f4b42eb0c5ad0b40998b5855584e"
+          }
+        },
+        {
+          "client_id": "821616217053-76q4uesp5c1751tni1akndnggun8dleb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYm3SSsXGDrv6ZWWxAphjmcfCzuyrlZBs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "821616217053-76q4uesp5c1751tni1akndnggun8dleb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
