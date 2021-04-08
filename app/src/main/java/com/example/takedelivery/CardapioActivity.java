@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -28,7 +27,6 @@ public class CardapioActivity extends AppCompatActivity {
     String nomeEmpresa;
     TextView textViewNomeEmpresa;
     Boolean isEmpresa;
-    BancoDeDados bancoDeDados;
     private FirebaseDatabase mDatabase = FirebaseDatabase.getInstance ();
     private DatabaseReference mDatabaseReference = mDatabase.getReference ();
     @Override
@@ -53,24 +51,10 @@ public class CardapioActivity extends AppCompatActivity {
 
         adapter = new AdapterListViewPersonalizada(cardapio, this);
 
-        listViewProdutos = (ListView) findViewById(R.id.listViewProdutos);
+        listViewProdutos = (ListView) findViewById(R.id.listViewProdutosEmp);
 
         listViewProdutos.setAdapter(adapter);
 
-
-        listViewProdutos.setOnItemClickListener(new android.widget.AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> arg0, View arg1,
-                                    int position, long arg3) {
-
-                selected = position;
-                addCarrinho(arg1);
-            }
-
-        });
-//        bancoDeDados = new BancoDeDados( this, listViewProdutos );
-//        bancoDeDados.start();
     }
     public void addCarrinho (View view){
         Intent intent = new Intent(this, AdicionaProdutoCarrinhoActivity.class);

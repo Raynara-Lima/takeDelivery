@@ -1,7 +1,6 @@
 package com.example.takedelivery.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,13 +14,12 @@ import java.text.NumberFormat;
 import java.util.List;
 import java.util.Locale;
 
-public class AdapterListViewPersonalizada extends BaseAdapter {
-
+public class AdapterListViewProdutosPedido extends BaseAdapter {
     private final List<Produto> produtos;
-//    private final Activity act;
+    //    private final Activity act;
     private final Context c;
 
-    public AdapterListViewPersonalizada(List<Produto> produtos, Context context) {
+    public AdapterListViewProdutosPedido(List<Produto> produtos, Context context) {
         this.produtos = produtos;
         this.c = context;
         ;
@@ -46,18 +44,16 @@ public class AdapterListViewPersonalizada extends BaseAdapter {
 
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        convertView = LayoutInflater.from(c).inflate(R.layout.layout_list,parent,false);
+        convertView = LayoutInflater.from(c).inflate(R.layout.list_prod_empre,parent,false);
         Produto produto = produtos.get(position);
 
-        TextView nome = (TextView) convertView.findViewById(R.id.lista_produtos_personalizada_nome);
-        TextView descricao = (TextView) convertView.findViewById(R.id.lista_produtos_personalizada_descricao);
-        TextView preco =  (TextView) convertView.findViewById(R.id.lista_produtos_personalizada_preco);
+        TextView nome = (TextView) convertView.findViewById(R.id.textViewNomeProdPed);
+        TextView preco =  (TextView) convertView.findViewById(R.id.textViewNomePrecoPed);
 
         nome.setText(produto.getNome());
-        descricao.setText(produto.getDescricao());
         Locale ptBr = new Locale("pt", "BR");
         preco.setText( NumberFormat.getCurrencyInstance(ptBr).format(produto.getPreco()));
-        Log.d(  "firebase", "Value is: ");
+
         return convertView;
 
     }

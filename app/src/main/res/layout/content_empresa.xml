@@ -88,8 +88,22 @@
             android:id="@+id/button6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="verPedidos"
-            android:text="Ver pedidos" />
+            android:onClick="verPedidosPendentes"
+            android:text="Ver pedidos pendentes aprovação" />
+
+        <Button
+            android:id="@+id/button11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="verPedidosAndamento"
+            android:text="Ver pedidos em andamento" />
+
+        <Button
+            android:id="@+id/button10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="verPedidosFinalizados"
+            android:text="Histórico de Pedidos" />
 
         <Button
             android:id="@+id/button5"

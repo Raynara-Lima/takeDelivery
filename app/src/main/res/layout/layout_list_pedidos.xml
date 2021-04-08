@@ -34,7 +34,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Pedido 1"
                     android:textColor="@color/coroficial"
                     android:textStyle="bold" />
 
@@ -43,9 +42,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="25/02  - 11:05"
                     android:textColor="@color/coroficial"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -61,8 +59,7 @@
             <TextView
                 android:id="@+id/textViewNomeCliente"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Raynara Silva Lima" />
+                android:layout_height="wrap_content" />
 
             <TextView
                 android:id="@+id/textView9"
@@ -73,22 +70,45 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/textViewEndereco"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/textViewBairro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/textViewCidade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/textView22"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Rua Crispim Almeida, 1415" />
+                android:layout_weight="1"
+                android:text="Produtos"
+                android:textColor="#0B0B0B"
+                android:textStyle="bold" />
 
+            <ListView
+                android:id="@+id/listViewProdutosPedido"
+                android:layout_width="match_parent"
+                android:layout_height="70dp" />
             <TextView
-                android:id="@+id/textView15"
+                android:id="@+id/textView23"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Mone Castelo" />
+                android:text="Valor"
+                android:textColor="#070707"
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView16"
+                android:id="@+id/textViewValorPed"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Fortaleza - CE" />
+                android:layout_height="wrap_content" />
 
             <TextView
                 android:id="@+id/textView17"
@@ -99,15 +119,15 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/textViewPagamento"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Pagamento pelo aplicativo" />
+                android:layout_height="wrap_content" />
 
             <Button
-                android:id="@+id/button7"
+                android:id="@+id/buttonsStatus"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="mudaStatus"
                 android:text="Liberar para a entrega" />
         </LinearLayout>
 

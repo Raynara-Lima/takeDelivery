@@ -25,12 +25,18 @@ public class CadastroProdutoActivity extends AppCompatActivity {
     int id;
     private FirebaseDatabase mDatabase = FirebaseDatabase.getInstance ();
     private DatabaseReference mDatabaseReference = mDatabase.getReference ();
+    public static DatabaseReference empresaLogadaRef;
+    public static Produto produto;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_produto);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        empresaLogadaRef = CadastroProdutoActivity.empresaLogadaRef;
+        produto = CadastroProdutoActivity.produto;
 
         editTextNome = findViewById( R.id.editTextNome );
         editTextDescricao = findViewById( R.id.editTextDescricao );
@@ -65,24 +71,20 @@ public class CadastroProdutoActivity extends AppCompatActivity {
         String descricao = editTextDescricao.getText().toString();
         String preco = editTextPreco.getText().toString();
 
-        intent.putExtra("nome", nome );
-        intent.putExtra("descricao", descricao );
-        intent.putExtra("preco", preco );
+
         if(edit) {
-            intent.putExtra("id", idProdutoEditar);
-            mDatabaseReference = mDatabase.getReference ().child ("produtos").child(idProdutoEditar);
-            mDatabaseReference.child("nome").setValue(nome);
-            mDatabaseReference.child("descricao").setValue(descricao);
-            mDatabaseReference.child("preco").setValue( new Float(preco));
-
-
+            produto.setNome(nome);
+            produto.setDescricao(descricao);
+            produto.setPreco(new Float(preco));
+            produto.salvar(empresaLogadaRef);
         }else{
-            Produto produto = new Produto(id, nome, descricao, new Float(preco));
-            mDatabaseReference = mDatabase.getReference ().child ("produtos").child(String.valueOf(id));
-            mDatabaseReference.setValue (produto);
+            Produto produto = new Produto();
+            produto.setNome(nome);
+            produto.setDescricao(descricao);
+            produto.setPreco(new Float(preco));
+            produto.salvar(empresaLogadaRef);
 
         }
-        setResult( Constants.RESULT_ADD, intent );
         finish();
     }
 

@@ -1,16 +1,20 @@
 package com.example.takedelivery.model;
 
+import com.example.takedelivery.FirebaseItems;
+import com.google.firebase.database.DatabaseReference;
+
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class Produto {
-    int id;
+public class Produto implements Serializable {
+    String id;
     String nome;
     String descricao;
     Float preco;
     private static int contadorId = 0;
 
 
-    public Produto(int id, String nome, String descricao, Float preco) {
+    public Produto(String id, String nome, String descricao, Float preco) {
         this.nome = nome;
         this.descricao = descricao;
         this.preco = preco;
@@ -21,8 +25,13 @@ public class Produto {
     public Produto() {
     }
 
+    public void setId(String id) {
 
-    public int getId() {
+        //setId( idGrupoFirebase );
+        this.id = id;
+    }
+
+    public String getId() {
         return id;
     }
 
@@ -50,12 +59,18 @@ public class Produto {
         this.preco = preco;
     }
 
-    @Override
-    public String toString() {
-        return "Produto{" +
-                "nome='" + nome + '\'' +
-                ", descricao='" + descricao + '\'' +
-                ", preco=" + preco +
-                '}';
+    public void salvar(DatabaseReference empresaRef){
+        DatabaseReference produtoRef = empresaRef.child("produtos");
+
+        if(getId() == null){
+            String idProdutoFirebase = produtoRef.push().getKey();
+            setId(idProdutoFirebase);
+        }
+        produtoRef.child( getId() ).setValue( this );
+    }
+
+    public void excluir(DatabaseReference empresaRef){
+        DatabaseReference produtoRef = empresaRef.child("produtos");
+        produtoRef.child( getId() ).removeValue();
     }
 }

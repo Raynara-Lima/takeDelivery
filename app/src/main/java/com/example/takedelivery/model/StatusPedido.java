@@ -1,4 +1,4 @@
-package com.example.takedelivery;
+package com.example.takedelivery.model;
 
 public enum StatusPedido {
     SAIU_PARA_ENTREGA("Saiu para entrega"),

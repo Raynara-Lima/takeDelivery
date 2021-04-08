@@ -25,7 +25,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class ClienteActivity extends AppCompatActivity {
-    Empresa empresa = new Empresa("28.046.882/0001-45", "Delivery Menu", "8599568791", "60125151", "CE", "Fortaleza", "Dionisio Torres", "Osvaldo Cruz", "2085", Categoria.BRASILEIRA);
+
     ArrayList<Produto> cardapio = new ArrayList<Produto>();
 
     ArrayList<Empresa> empresas = new ArrayList<Empresa>();
@@ -48,8 +48,8 @@ public class ClienteActivity extends AppCompatActivity {
        // cardapio.add(new Produto("Vatapá de frango","Acompanha arroz branco e farofinha de mandioca. Vatapá de frando desfiado e finalizado com batata palha.", (float) 19.90));
         //cardapio.add(new Produto("Frango com salsa de ervas frescas","Acompanha arroz branco e purê de batatas. Filé de peito de frango em tiras adicnado de molho a base de azeite com ervas frescas.", (float) 19.90));
 
-        empresa.setCardapio(cardapio);
-        empresas.add(empresa);
+//        empresa.setCardapio(cardapio);
+//        empresas.add(empresa);
 //        empresas.add(new Empresa("28.046.882/0001-45", "Delivery Menu", "8599568791", "60125151", "CE", "Fortaleza", "Dionisio Torres", "Osvaldo Cruz", "2085", Categoria.BRASILEIRA));
 
         selected = -1;
@@ -78,8 +78,8 @@ public class ClienteActivity extends AppCompatActivity {
     }
     public void verCardapio (View view){
         Intent intent = new Intent(this, CardapioActivity.class);
-        CardapioActivity.cardapio = empresa.getCardapio();
-        intent.putExtra("nomeEmpresa", empresa.getNomeFantasia() );
+//        CardapioActivity.cardapio = empresa.getCardapio();
+//        intent.putExtra("nomeEmpresa", empresa.getNomeFantasia() );
 
         startActivity(intent);
 

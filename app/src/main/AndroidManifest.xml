@@ -8,11 +8,22 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.TakeDelivery">
+        android:theme="@style/Theme.TakeDelivery"
+        android:usesCleartextTraffic="true"
+        >
+
+        <activity
+            android:name=".CadastroInicialEmpresaActivity"
+            android:label="@string/title_activity_cadastro_inicial_empresa"
+            android:theme="@style/Theme.TakeDelivery.NoActionBar"></activity>
         <activity
             android:name=".CadastroClienteActivity"
             android:label="@string/title_activity_cadastro_cliente"
-            android:theme="@style/Theme.TakeDelivery.NoActionBar"></activity>
+            android:theme="@style/Theme.TakeDelivery.NoActionBar" />
+        <activity
+            android:name=".CadastroEmpresaActivity"
+            android:label="Cadastro Empresa"
+            android:theme="@style/Theme.TakeDelivery.NoActionBar" />
         <activity
             android:name=".HistoricoPedidosCliActivity"
             android:label="@string/title_activity_historico_pedidos_cli"
@@ -32,10 +43,6 @@
         <activity
             android:name=".ClienteActivity"
             android:label="Cliente"
-            android:theme="@style/Theme.TakeDelivery.NoActionBar" />
-        <activity
-            android:name=".ClientActivity"
-            android:label="Take Delivery"
             android:theme="@style/Theme.TakeDelivery.NoActionBar" />
         <activity
             android:name=".PedidosEmpresaActivity"
@@ -58,7 +65,12 @@
             android:label="Cardápio"
             android:theme="@style/Theme.TakeDelivery.NoActionBar" />
         <activity android:name=".Choice" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"/>
+            <activity
+                android:name=".AcessoActivity"
+                android:label="Take Delivery"
+                android:theme="@style/Theme.TakeDelivery.NoActionBar" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

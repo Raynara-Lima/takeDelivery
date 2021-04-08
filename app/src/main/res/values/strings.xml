@@ -2,7 +2,7 @@
     <string name="app_name">takeDelivery</string>
     <string name="title_activity_cadastro_produto">Cadastrar Produto</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="title_activity_cardapio">Cardápio</string>
+    <string name="title_">Cardápio</string>
 
     <string name="next">Next</string>
     <string name="previous">Previous</string>
@@ -19,6 +19,8 @@
     <string name="title_activity_resumo_pedido">ResumoPedidoActivity</string>
     <string name="title_activity_historico_pedidos_cli">HistoricoPedidosCliActivity</string>
     <string name="title_activity_cadastro_cliente">CadastroClienteActivity</string>
+    <string name="title_activity_cadastro_empresa2">CadastroEmpresaActivity2</string>
+    <string name="title_activity_cadastro_inicial_empresa">CadastroInicialEmpresaActivity</string>
 
 
 </resources>

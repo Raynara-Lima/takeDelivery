@@ -1,48 +1,74 @@
 package com.example.takedelivery.model;
 
-import com.example.takedelivery.StatusPedido;
+import java.util.List;
 
 public class Pedido {
     private static int contadorId = 0;
 
     int id;
-    String nomeCliente; //mudar para objeto cliente
+    String idCliente;
+    String idRestaurante;
     String data;
-    String hora;
-    String endereco;
-    String numero;
+    int hora;
     String metodoDePagamento;
-    StatusPedido status;
+    String status;
+    List<String> produtos;
+    Float valorTotal;
+    public Pedido() {
+    }
 
-    public Pedido(String nomeCliente, String data, String hora, String endereco, String numero, String metodoDePagamento) {
-        this.nomeCliente = nomeCliente;
+    public Pedido(int id, String idCliente, String idRestaurante, String data, int hora, String metodoDePagamento, String status, List<String> produtos, Float valorTotal) {
+        this.id = id;
+        this.idCliente = idCliente;
+        this.idRestaurante = idRestaurante;
         this.data = data;
         this.hora = hora;
-        this.endereco = endereco;
-        this.numero = numero;
         this.metodoDePagamento = metodoDePagamento;
-        this.id = contadorId++;
+        this.status = status;
+        this.produtos = produtos;
+        this.valorTotal = valorTotal;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public List<String> getProdutos() {
+        return produtos;
+    }
+
+    public Float getValorTotal() {
+        return valorTotal;
+    }
+
+    public String getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(String idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    public String getIdRestaurante() {
+        return idRestaurante;
+    }
+
+    public void setIdRestaurante(String idRestaurante) {
+        this.idRestaurante = idRestaurante;
     }
 
     public int getId() {
         return id;
     }
 
-    public StatusPedido getStatus() {
+    public String  getStatus() {
         return status;
     }
 
-    public void setStatus(StatusPedido status) {
-        this.status = status;
-    }
+//    public void setStatus(StatusPedido status) {
+//        this.status = status;
+//    }
 
-    public String getNomeCliente() {
-        return nomeCliente;
-    }
-
-    public void setNomeCliente(String nomeCliente) {
-        this.nomeCliente = nomeCliente;
-    }
 
     public String getData() {
         return data;
@@ -52,29 +78,11 @@ public class Pedido {
         this.data = data;
     }
 
-    public String getHora() {
+    public int getHora() {
         return hora;
     }
 
-    public void setHora(String hora) {
-        this.hora = hora;
-    }
 
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public String getNumero() {
-        return numero;
-    }
-
-    public void setNumero(String numero) {
-        this.numero = numero;
-    }
 
     public String getMetodoDePagamento() {
         return metodoDePagamento;
@@ -84,15 +92,5 @@ public class Pedido {
         this.metodoDePagamento = metodoDePagamento;
     }
 
-    @Override
-    public String toString() {
-        return "Pedido{" +
-                "nomeCliente='" + nomeCliente + '\'' +
-                ", data='" + data + '\'' +
-                ", hora='" + hora + '\'' +
-                ", endereco='" + endereco + '\'' +
-                ", numero='" + numero + '\'' +
-                ", metodoDePagamento='" + metodoDePagamento + '\'' +
-                '}';
-    }
+
 }
