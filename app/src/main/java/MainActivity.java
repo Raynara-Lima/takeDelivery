@@ -1,10 +1,10 @@
-package com.example.takedelivery;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.takedelivery.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,12 +17,12 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 abrirBegin();
             }
-        }, 5000);
+        }, 1000);
 
     }
 
     private void abrirBegin() {
-        Intent i  = new Intent(MainActivity.this, Client.class);
+        Intent i  = new Intent(MainActivity.this, Escolha.class);
         startActivity(i);
         finish();
     }
